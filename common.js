@@ -1,6 +1,14 @@
 var Abril = (typeof Abril == 'undefined') ? {} : Abril;
 Abril.DAY = 86400000;
 
+if(typeof String.prototype.right == 'undefined') {
+	String.prototype.right = function(size) {
+		if(size > this.length) return this;
+		if(size < 1) return "";
+		return this.substring(this.length - size);
+	}
+}
+
 if(typeof Date.prototype.midnight == 'undefined') {
 	Date.prototype.midnight = function() {
 		return new Date(this.getFullYear(), this.getMonth(), this.getDate());
